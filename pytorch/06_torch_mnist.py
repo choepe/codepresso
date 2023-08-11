@@ -70,3 +70,11 @@ x = x.to(device)
 y = y.to(device)
 model.train()
 logits = model(x)
+logits.shape
+batch_loss = loss(logits, y)
+for name, param in model.named_parameters():
+    print(name)
+    print(param.shape)
+print(model.get_parameter('2.bias'))
+print(model.get_parameter('2.bias').grad)
+batch_loss.backward()
